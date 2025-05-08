@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+</head>
+<body>
+<p>Hello World!</p>
+<button name="clickPostButton" onclick="postClick()">click!</button>
+<button name="updateGetButton" onclick="getClick()">update!</button>
+<label>
+<textarea id="textArea" readonly rows="4" cols="50">
+    This text is readonly!
+</textarea>
+</label>
+</body>
+<script>
+    function getClick() {
+        fetch('clicks')
+            .then(response => response.json())
+            .then(data => {
+                const timestamps = data.clicks;
+                document.getElementById('textArea').value = timestamps.join('\n');
+            })
+            .catch(error => console.error('Error:', error));
+    }
+    function postClick() {
+        fetch('clicks', {
+            method: 'POST'
+        })
+        .then(response => response.json())
+        .then(data => console.log('Timestamp added:', data))
+        .catch(error => console.error('Error:', error));
+    }
+</script>
+</html>

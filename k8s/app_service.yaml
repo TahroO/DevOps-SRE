@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: foobar
+spec:
+  type: LoadBalancer
+  selector:
+    app: foobar
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000

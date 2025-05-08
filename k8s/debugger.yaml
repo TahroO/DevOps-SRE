@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: debugger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: debugger
+  template:
+    metadata:
+      labels:
+        app: debugger
+    spec:
+      containers:
+        - name: debug-container
+          image: ubuntu:24.04
+          command: ["sleep", "infinity"]

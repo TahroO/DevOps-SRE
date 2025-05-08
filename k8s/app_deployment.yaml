@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foobar
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: foobar
+  template:
+    metadata:
+      labels:
+        app: foobar
+    spec:
+      containers:
+      - name: foobar
+        image: berndhtw/foobar:ae76ed2265b316550f70e1ae8475dbbc19b5c944
+        ports:
+        - containerPort: 5000
+        env:
+        - name: MONGODB_HOST
+          value: "mongodb-0.mongodb.default.svc.cluster.local"
+        - name: MONGODB_PORT
+          value: "27017"
+        - name: MONGODB_USERNAME
+          value: "admin"
+        - name: MONGODB_PASSWORD
+          value: "admin"
+        resources:
+          limits:
+            memory: "512Mi"
+          requests:
+            cpu: "100m"
+            memory: "256Mi"
