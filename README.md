@@ -2,6 +2,10 @@
 
 ### This repository represents my entire lab and project work for the course DevOps and Site Reliability Engineering, which I attended in the winter semester 2024/25.
 
+My collaborative Linux Presentation during the course
+
+> - [Linux-DevOps-Presentation](/presentation/Linux_DevOps_Presentation_ReuschGleissner.pdf)
+
 LabWork Topics include:  
 > - create a **Flask** service and handle GET and POST requests for a small click application
 > - solve all **git branching** puzzles from [learngitbranching](https://learngitbranching.js.org/)
